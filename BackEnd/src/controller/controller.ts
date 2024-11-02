@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Todo } from "../model/todoModel";
+import { ITodo } from "../interface/Itodo";
 
 
 export const createTodo = async (req: Request, res: Response) => {
@@ -63,7 +64,7 @@ export const updateTodo = async (req: Request, res: Response) => {
 
 
 export const deleteTodo = async (req: Request, res: Response) => {
-    const { id } = req.params    
+    const { id } = req.params
     try {
         const deleted = await Todo.findByIdAndDelete(id)
         res.status(201).json({
@@ -78,6 +79,8 @@ export const deleteTodo = async (req: Request, res: Response) => {
         })
     }
 }
+
+
 
 
 

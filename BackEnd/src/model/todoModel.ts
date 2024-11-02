@@ -5,7 +5,7 @@ const todoSchema = new mongoose.Schema<ITodo>({
     title: {
         type: String,
         required: true
-    }
+    },
 },
 {timestamps:true})
 
