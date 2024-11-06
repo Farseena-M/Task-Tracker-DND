@@ -69,14 +69,14 @@ function App() {
 
         {/* Drop Area */}
 
-        <div className='flex flex-col items-start'>
+        {/* <div className='flex flex-col items-start'>
           <div className='w-[400px] h-52 border-gray-400 rounded-lg p-4 mt-12'>
             <h2 className='text-xl font-bold mb-4 text-gray-300 text-center font-serif'>Completed Tasks</h2>
             <div className='w-[400px] h-100 overflow-y-auto'>
               <ItemList items={items} handleEdit={handleEdit} handleDelete={deleteTodo} setActiveCard={setActiveCard} status={'Completed'} onDrop={onDrop} />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
