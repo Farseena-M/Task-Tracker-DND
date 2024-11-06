@@ -1,5 +1,6 @@
 
-export type items = {
+export interface items {
+    status: string,
     title: string,
     _id: string
 }

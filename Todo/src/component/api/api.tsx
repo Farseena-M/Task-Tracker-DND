@@ -51,5 +51,5 @@ export const useTodoApi = () => {
         fetchTodos();
     }, []);
 
-    return { items, createTodo, updateTodo, deleteTodo };
+    return { items, createTodo, updateTodo, deleteTodo ,setItems};
 };
