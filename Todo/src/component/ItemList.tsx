@@ -12,13 +12,16 @@ type ItemList = {
 }
 
 export const ItemList = ({ items, handleEdit, handleDelete, setActiveCard, onDrop, status }: ItemList) => {
+    const handleDrop = (position: number) => {
+        onDrop(status, position);
+    };
 
     return (
         <>
-            {items.map((data) => (
+            {items.map((data, index) => (
                 status && (
                     <div key={data._id}>
-                        <DropArea onDrop={(position) => onDrop(status, position)} />
+                        <DropArea index={index} onDrop={(position) => handleDrop(position)} />
                         <div className="flex justify-between items-center border border-slate-600 pl-2 mb-2 mr-1 py-2" draggable onDragStart={() => setActiveCard(data._id)} onDragEnd={() => setActiveCard(null)}>
                             <p>{data.title}</p>
                             <div className="flex space-x-4">
@@ -37,7 +40,6 @@ export const ItemList = ({ items, handleEdit, handleDelete, setActiveCard, onDro
                     </div>
                 )
             ))}
-            <DropArea onDrop={(position) => onDrop(status, position)} />
         </>
     )
 }

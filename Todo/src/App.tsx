@@ -67,7 +67,7 @@ function App() {
           </div>
         </div>
 
-       {/* Drop Area */}
+        {/* Drop Area */}
 
         <div className='flex flex-col items-start'>
           <div className='w-[400px] h-52 border-gray-400 rounded-lg p-4 mt-12'>
