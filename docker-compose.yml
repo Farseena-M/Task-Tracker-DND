@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./FrontEnd
+      dockerfile: Dockerfile
+    container_name: todo-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - todo-network
+    environment:
+      - VITE_BASE_URL=http://localhost:5000
+
+  backend:
+    build:
+      context: ./BackEnd
+      dockerfile: Dockerfile
+    container_name: todo-backend
+    ports:
+      - "5000:5000"
+    # environment:
+    #   - CONN_URL=mongodb://mongo:27017/todo-db
+    # depends_on:
+    #   - mongo
+    env_file:
+      - ./BackEnd/.env
+    networks:
+      - todo-network
+    command: npm run dev
+    volumes:
+      - ./BackEnd:/server
+  # mongo:
+  #   image: mongo:latest
+  #   container_name: todo-mongo
+  #   volumes:
+  #     - mongo-data:/data/db
+  #   networks:
+  #     - todo-network
+
+volumes:
+  mongo-data:
+
+
+networks:
+  todo-network:
+    driver: bridge

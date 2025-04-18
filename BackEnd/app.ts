@@ -5,8 +5,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// app.get("/", (req, res) => {
+//     res.send("Backend is working!");
+// });
 
-app.use('/todo',todoRouter)
+app.use('/todo', todoRouter)
 
 
 export default app

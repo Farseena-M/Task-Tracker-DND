@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev server"
+    "start": "ts-node-dev server",
+    "dev": "nodemon --exec ts-node server.ts"
   },
   "author": "",
   "license": "ISC",
