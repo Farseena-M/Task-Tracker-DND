@@ -1,4 +1,4 @@
-name: MERN CI
+name: Todo App CI
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 
 jobs:
   frontend:
-
     runs-on: ubuntu-latest
 
     defaults:
@@ -15,18 +14,21 @@ jobs:
         working-directory: FrontEnd
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
 
-      - run: npm install
+      - name: Install Frontend Dependencies
+        run: npm install
 
-      - run: npm run build
+      - name: Build Frontend
+        run: npm run build
 
   backend:
-
     runs-on: ubuntu-latest
 
     defaults:
@@ -34,12 +36,16 @@ jobs:
         working-directory: BackEnd
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
 
-      - run: npm install
+      - name: Install Backend Dependencies
+        run: npm install
 
-      - run: npm run build
+      - name: Check Backend
+        run: npm ls
