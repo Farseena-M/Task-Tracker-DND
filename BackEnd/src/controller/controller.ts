@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Todo } from "../model/todoModel";
-import { ITodo } from "../interface/Itodo";
+
 
 
 export const createTodo = async (req: Request, res: Response) => {
@@ -79,11 +79,5 @@ export const deleteTodo = async (req: Request, res: Response) => {
         })
     }
 }
-
-
-
-
-
-
 
 
