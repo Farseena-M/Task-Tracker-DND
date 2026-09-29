@@ -1,6 +1,5 @@
 import { app, BrowserWindow } from "electron";
 import path from "path";
-import { spawn } from "child_process";
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -46,34 +45,13 @@ const createWindow = () => {
         );
 
         // TEMPORARY: open DevTools
-        win.webContents.openDevTools();
+        // win.webContents.openDevTools();
     }
 };
 
-const startBackend = () => {
-    const backendPath = path.join(
-        __dirname,
-        "../BackEnd/dist/server.js"
-    );
-
-    const backend = spawn("node", [backendPath], {
-        cwd: path.join(__dirname, "../BackEnd"),
-        stdio: "inherit",
-    });
-
-    backend.on("error", (error) => {
-        console.error("Backend failed to start:", error);
-    });
-
-    return backend;
-};
 
 app.whenReady().then(() => {
-    // Production
-    if (app.isPackaged) {
-        startBackend();
-    }
-    // Development
+
     createWindow();
 
     app.on("activate", () => {

@@ -7,12 +7,10 @@
 # Electron build output
 /release/
 /dist/
+/Electron/dist/
 
 # TypeScript build info
 *.tsbuildinfo
 
 # Backend build output
 /BackEnd/dist/
-
-# Electron build output
-/Electron/dist/

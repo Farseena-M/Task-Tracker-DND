@@ -11,7 +11,7 @@
     "build:frontend": "npm --prefix FrontEnd run build",
     "build:backend": "npm --prefix BackEnd run build",
     "build:electron": "tsc -p Electron/tsconfig.json",
-    "build": "npm run build:frontend && npm run build:backend && npm run build:electron && electron-builder"
+    "build": "npm run build:frontend && npm run build:electron && electron-builder"
   },
   "repository": {
     "type": "git",
@@ -41,12 +41,14 @@
     "files": [
       "Electron/dist/**/*",
       "FrontEnd/dist/**/*",
-      "BackEnd/dist/**/*",
-      "BackEnd/package.json",
       "package.json"
     ],
     "win": {
       "target": "nsis"
+    },
+    "nsis": {
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   }
 }
