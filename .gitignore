@@ -1,0 +1,18 @@
+# Dependencies
+/node_modules/
+
+# Environment
+/.env
+
+# Electron build output
+/release/
+/dist/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Backend build output
+/BackEnd/dist/
+
+# Electron build output
+/Electron/dist/

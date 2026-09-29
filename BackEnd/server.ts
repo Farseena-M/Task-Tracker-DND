@@ -1,12 +1,11 @@
-import dotenv from 'dotenv'
-dotenv.config({ path: '.env' })
 import app from './app';
-import connectDb from './dbConnect/dbConnect';
-
+import { connectDb } from './dbConnect/dbConnect';
+import dotenv from 'dotenv';
+dotenv.config();
 
 connectDb()
 
-const port = 5000
+const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`Listening to ${port}`);
 })

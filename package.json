@@ -1,0 +1,52 @@
+{
+  "name": "task-tracker-dnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Electron/dist/main.js",
+  "scripts": {
+    "frontend": "npm --prefix FrontEnd run dev",
+    "backend": "npm --prefix BackEnd run dev",
+    "electron": "electron -r tsx/cjs .",
+    "desktop": "concurrently -k \"npm run frontend\" \"npm run backend\" \"npm run electron\"",
+    "build:frontend": "npm --prefix FrontEnd run build",
+    "build:backend": "npm --prefix BackEnd run build",
+    "build:electron": "tsc -p Electron/tsconfig.json",
+    "build": "npm run build:frontend && npm run build:backend && npm run build:electron && electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Farseena-M/Task-Tracker-DND.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Farseena-M/Task-Tracker-DND/issues"
+  },
+  "homepage": "https://github.com/Farseena-M/Task-Tracker-DND#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "build": {
+    "appId": "com.farseena.tasktracker",
+    "productName": "Task Tracker",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "Electron/dist/**/*",
+      "FrontEnd/dist/**/*",
+      "BackEnd/dist/**/*",
+      "BackEnd/package.json",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

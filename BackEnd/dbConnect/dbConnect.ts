@@ -2,9 +2,9 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import path from 'path'
 
-dotenv.config({ path: path.join(__dirname, '.env') })
+dotenv.config({ path: path.join(process.cwd(), '.env') })
 
-const connectDb = async () : Promise <void> => {
+export const connectDb = async (): Promise<void> => {
     try {
         await mongoose.connect(process.env.CONN_URL as string)
         console.log('DB connected');
@@ -12,6 +12,3 @@ const connectDb = async () : Promise <void> => {
         console.log(err);
     }
 }
-
-
-export default connectDb
